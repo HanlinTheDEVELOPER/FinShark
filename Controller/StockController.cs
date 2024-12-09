@@ -8,6 +8,7 @@ using FinShark.Helper;
 using FinShark.Interface;
 using FinShark.Mapper;
 using FinShark.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,7 @@ namespace FinShark.Controller
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Get([FromQuery] QueryObject queryObject)
         {
 

@@ -153,3 +153,6 @@
 /Users/hanlin/me/Learn/C#/FinShark/obj/Debug/net9.0/FinShark.pdb
 /Users/hanlin/me/Learn/C#/FinShark/obj/Debug/net9.0/FinShark.genruntimeconfig.cache
 /Users/hanlin/me/Learn/C#/FinShark/obj/Debug/net9.0/ref/FinShark.dll
+/Users/hanlin/me/Learn/C#/FinShark/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/hanlin/me/Learn/C#/FinShark/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/hanlin/me/Learn/C#/FinShark/obj/Debug/net9.0/FinShark.sourcelink.json
