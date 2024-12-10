@@ -33,6 +33,8 @@ namespace FinShark.Data
             // builder.Entity<IdentityRole>().HasData(
             //     new IdentityRole { Name = "Admin", NormalizedName = "ADMIN" },
             //     new IdentityRole { Name = "User", NormalizedName = "USER" });
+
+
         }
     }
 }

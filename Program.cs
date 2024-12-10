@@ -8,9 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using FinShark.Service;
-using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.OpenApi;
-using Microsoft.AspNetCore.Authentication;
 using FinShark.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,7 +21,7 @@ builder.Services.AddOpenApi(options =>
 
 builder.Services.AddDbContext<AppDbContext>(optionsAction =>
 {
-    optionsAction.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    optionsAction.UseSqlite("Data Source=FinShark.db"); ;
 });
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
