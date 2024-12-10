@@ -17,7 +17,8 @@ namespace FinShark.Mapper
                 Title = comment.Title,
                 Content = comment.Content,
                 CreatedOn = comment.CreatedOn,
-                StockId = comment.StockId
+                StockId = comment.StockId,
+                CreatedBy = comment.AppUser.UserName
             };
         }
 

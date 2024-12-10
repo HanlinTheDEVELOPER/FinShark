@@ -8,6 +8,9 @@ namespace FinShark.Interface
 {
     public interface IPortfolioRepo
     {
-        Task<List<Stock>> GetPortfolio(AppUser user);
+        Task<List<Stock>> GetUserPortfolio(AppUser user);
+        Task<Portfolio> CreatePortfolio(Portfolio portfolio);
+        Task<Portfolio?> DeletePortfolio(AppUser user, string symbol);
+        Task<bool> IsPortfolioExist(Portfolio portfolio);
     }
 }

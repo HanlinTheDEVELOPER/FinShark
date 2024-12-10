@@ -16,7 +16,27 @@ namespace FinShark.Repository
         {
             _context = context;
         }
-        public async Task<List<Stock>> GetPortfolio(AppUser user)
+
+        public async Task<Portfolio> CreatePortfolio(Portfolio portfolio)
+        {
+            await _context.Portfolios.AddAsync(portfolio);
+            await _context.SaveChangesAsync();
+            return portfolio;
+        }
+
+        public async Task<Portfolio?> DeletePortfolio(AppUser user, string symbol)
+        {
+            var portfolio = await _context.Portfolios.FirstOrDefaultAsync(p => p.AppUserId == user.Id && p.Stock.Symbol.ToLower() == symbol.ToLower());
+            if (portfolio is null)
+            {
+                return null;
+            }
+            _context.Portfolios.Remove(portfolio);
+            await _context.SaveChangesAsync();
+            return portfolio;
+        }
+
+        public async Task<List<Stock>> GetUserPortfolio(AppUser user)
         {
             return await _context.Portfolios.Where(p => p.AppUserId == user.Id).
             Select(stock => new Stock
@@ -29,6 +49,11 @@ namespace FinShark.Repository
                 MarketCap = stock.Stock.MarketCap,
                 Industry = stock.Stock.Industry,
             }).ToListAsync();
+        }
+
+        public async Task<bool> IsPortfolioExist(Portfolio portfolio)
+        {
+            return await _context.Portfolios.AnyAsync(p => p.AppUserId == portfolio.AppUserId && p.StockId == portfolio.StockId);
         }
     }
 }

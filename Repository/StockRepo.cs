@@ -21,7 +21,7 @@ namespace FinShark.Repository
         }
         public async Task<List<Stock>> GetAllStocks(QueryObject queryObject)
         {
-            var stocks = _context.Stocks.AsNoTracking().Include(s => s.Comments).AsQueryable();
+            var stocks = _context.Stocks.AsNoTracking().Include(s => s.Comments).ThenInclude(c => c.AppUser).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(queryObject.Symbol) || !string.IsNullOrWhiteSpace(queryObject.Company))
             {
@@ -119,6 +119,12 @@ namespace FinShark.Repository
             }
             _context.Stocks.Remove(stock);
             await _context.SaveChangesAsync();
+            return stock;
+        }
+
+        public async Task<Stock?> GetStockBySymbol(string symbol)
+        {
+            var stock = await _context.Stocks.AsNoTracking().FirstOrDefaultAsync(s => s.Symbol == symbol);
             return stock;
         }
     }

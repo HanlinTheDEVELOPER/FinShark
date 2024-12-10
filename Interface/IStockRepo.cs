@@ -12,6 +12,7 @@ namespace FinShark.Interface
     {
         Task<List<Stock>> GetAllStocks(QueryObject queryObject);
         Task<Stock?> GetStockById(int id);
+        Task<Stock?> GetStockBySymbol(string symbol);
         Task<Stock> CreateStock(Stock createStock);
         Task<Stock?> UpdateStock(int id, UpdateStockDto updateStock);
         Task<Stock?> DeleteStock(int id);

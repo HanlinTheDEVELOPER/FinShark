@@ -21,12 +21,12 @@ namespace FinShark.Repository
         }
         public async Task<List<Comment>> GetAllComments()
         {
-            return await _context.Comments.AsNoTracking().ToListAsync();
+            return await _context.Comments.AsNoTracking().Include(c => c.AppUser).ToListAsync();
         }
 
         public async Task<Comment?> GetCommentById(int id)
         {
-            var comment = await _context.Comments.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+            var comment = await _context.Comments.AsNoTracking().Include(c => c.AppUser).FirstOrDefaultAsync(c => c.Id == id);
             if (comment is null)
             {
                 return null;
