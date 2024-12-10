@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinShark")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c79cdb0e15527a8400565882f36835a532393e2b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6aa5ce6876e29412b22bb39067b72ee3d5b97d9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinShark")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinShark")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
